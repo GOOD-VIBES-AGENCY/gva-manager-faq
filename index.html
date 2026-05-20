@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問 | GVA Manager Bot</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --green: #06C755; --dark: #111; --gray: #666; --bg: #F8F8F8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.7; }
+  header { background: #fff; border-bottom: 1px solid #eee; padding: 16px 24px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 10; }
+  .logo { font-weight: 700; font-size: 16px; }
+  .logo span { color: var(--green); }
+  .search-wrap { max-width: 680px; margin: 32px auto 0; padding: 0 16px; }
+  .search { width: 100%; padding: 14px 18px; border: 1.5px solid #e0e0e0; border-radius: 12px; font-size: 15px; font-family: inherit; outline: none; transition: border-color .2s; }
+  .search:focus { border-color: var(--green); }
+  main { max-width: 680px; margin: 24px auto 64px; padding: 0 16px; }
+  .category { margin-bottom: 36px; }
+  .category-title { font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+  .faq-item { background: #fff; border-radius: 12px; margin-bottom: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .faq-q { padding: 16px 20px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; user-select: none; }
+  .faq-q:hover { background: #fafafa; }
+  .faq-arrow { font-size: 12px; color: #aaa; transition: transform .2s; flex-shrink: 0; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+  .faq-a { display: none; padding: 12px 20px 16px; font-size: 14px; color: var(--gray); border-top: 1px solid #f0f0f0; line-height: 1.9; }
+  .faq-item.open .faq-a { display: block; }
+  .no-result { text-align: center; color: #aaa; padding: 40px; display: none; }
+  .cta { display: block; text-align: center; margin: 32px auto 0; color: var(--green); font-size: 14px; text-decoration: none; }
+  .cta:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🤖 GVA Manager Bot <span>よくある質問</span></div>
+</header>
+<div class="search-wrap">
+  <input class="search" type="text" placeholder="キーワードで検索..." oninput="searchFaq(this.value)">
+</div>
+<main>
+  <div class="no-result" id="no-result">一致する質問が見つかりませんでした</div>
+
+  <div class="category">
+    <div class="category-title">🚀 はじめかた</div>
+    <div class="faq-item" data-text="始め方 登録 友達追加">
+      <div class="faq-q" onclick="toggle(this)">どうやって始めればいいですか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">LINEで「高橋 徹 | GVA」を検索して友達追加するだけです。追加するとすぐにウェルカムメッセージと初期設定フォームが届きます。</div>
+    </div>
+    <div class="faq-item" data-text="設定 口座 銀行 初期設定">
+      <div class="faq-q" onclick="toggle(this)">初期設定は何を入力しますか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">氏名・住所・銀行口座情報・SNSアカウント（任意）です。届いたフォームをコピーして情報を入力して送ってください。口座情報は請求書に自動反映されます。</div>
+    </div>
+    <div class="faq-item" data-text="グループ 追加 招待 クライアント 設定">
+      <div class="faq-q" onclick="toggle(this)">グループ設定の手順を教えてください<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">① クライアントとのLINEグループにBotを招待する<br>② Botとの1対1トークで「グループ設定」と送る<br>③ グループを選択して完了<br><br>Bot招待から2時間以内に設定してください。</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">💳 プラン・料金</div>
+    <div class="faq-item" data-text="無料 free フリー 何ができる">
+      <div class="faq-q" onclick="toggle(this)">無料プランで何ができますか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">1クライアントのグループ監視・オファー管理・今日/今週のタスク確認が無料でできます。AI自動解析・自動リマインド・請求書ダッシュボードはProプラン（¥1,980/月）以上が必要です。</div>
+    </div>
+    <div class="faq-item" data-text="アップグレード pro premium 変更 課金">
+      <div class="faq-q" onclick="toggle(this)">プランをアップグレードするには？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Botに「Pro」または「Premium」と送ると決済ページのURLが届きます。カード情報を入力すれば即座に切り替わります。Proは14日間無料トライアル付きです。</div>
+    </div>
+    <div class="faq-item" data-text="解約 キャンセル 退会 やめる">
+      <div class="faq-q" onclick="toggle(this)">解約するには？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Botに「プラン管理」と送ると管理ページのURLが届きます。そちらから解約・プラン変更が可能です。解約後は即座にFreeプランに戻ります。</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">📂 案件・オファー管理</div>
+    <div class="faq-item" data-text="案件 登録 オリエン 書類 自動">
+      <div class="faq-q" onclick="toggle(this)">案件はどうやって登録されますか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">グループLINEにオリエンシート（書類・画像）が届くと、AIが自動で読み取って「この内容で登録しますか？」と確認します。「orienter 登録」と送ると登録完了です。</div>
+    </div>
+    <div class="faq-item" data-text="オファー エントリー 見送り 受注確定">
+      <div class="faq-q" onclick="toggle(this)">オファーへの返答はどうすれば？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">「オファー」ボタンで一覧を確認し、番号を選ぶと操作メニューが開きます。「エントリー」「見送り」「受注確定」の3択で管理できます。</div>
+    </div>
+    <div class="faq-item" data-text="フェーズ 進捗 ステータス 次へ 更新">
+      <div class="faq-q" onclick="toggle(this)">案件の進捗はどう更新しますか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">「案件」ボタン → 番号を選択 → 「次へ進める」で次のフェーズに進みます。<br>オリエン待ち → 構成案 → 初稿 → 修正 → 投稿準備 → 投稿済み → URL報告 → 請求書発行 → 入金確認の順です。</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">🧾 請求書</div>
+    <div class="faq-item" data-text="請求書 作成 PDF 発行 ダッシュボード">
+      <div class="faq-q" onclick="toggle(this)">請求書の作成方法は？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">「請求書」ボタンを押すとダッシュボードのURLが届きます。LINEでログイン後、「＋ 新規作成」から作成できます。PDF出力・送付・入金管理もできます。（Proプラン以上）</div>
+    </div>
+    <div class="faq-item" data-text="請求書 口座 銀行 反映されない">
+      <div class="faq-q" onclick="toggle(this)">請求書に銀行口座が反映されません<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">「設定」と送って口座情報を登録してください。登録後に作成する請求書から自動反映されます。</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">⏰ リマインド・通知</div>
+    <div class="faq-item" data-text="リマインド 通知 期限 いつ 届く">
+      <div class="faq-q" onclick="toggle(this)">リマインドはいつ届きますか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">期限の3日前・前日・当日朝・期限超過の4タイミングで自動通知されます。（Proプラン以上）</div>
+    </div>
+    <div class="faq-item" data-text="AI 監視 グループ 通知 解析">
+      <div class="faq-q" onclick="toggle(this)">グループのAI監視はどう動きますか？<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">クライアントの発言をAIが5分ごとにまとめて解析し、承認・修正依頼・期限変更などの重要な動きを1対1トークに通知します。（Proプラン以上）</div>
+    </div>
+  </div>
+
+  <a class="cta" href="https://line.me/R/ti/p/@102fuvbt" target="_blank">❓ 解決しない場合はBotに直接相談してください →</a>
+</main>
+<script>
+function toggle(el) { el.closest('.faq-item').classList.toggle('open'); }
+function searchFaq(q) {
+  q = q.toLowerCase().trim();
+  var items = document.querySelectorAll('.faq-item');
+  var cats = document.querySelectorAll('.category');
+  var found = 0;
+  items.forEach(function(item) {
+    var text = (item.getAttribute('data-text')||'') + ' ' + item.textContent;
+    var match = !q || text.toLowerCase().indexOf(q) >= 0;
+    item.style.display = match ? '' : 'none';
+    if (match) found++;
+    if (match && q) item.classList.add('open');
+  });
+  cats.forEach(function(cat) {
+    var vis = Array.from(cat.querySelectorAll('.faq-item')).some(function(i) { return i.style.display !== 'none'; });
+    cat.style.display = vis ? '' : 'none';
+  });
+  document.getElementById('no-result').style.display = (!found && q) ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
