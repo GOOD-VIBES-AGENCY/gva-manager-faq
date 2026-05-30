@@ -95,6 +95,82 @@
     </div>
   </div>
 
+
+  <!-- ウェブアプリ管理画面 -->
+  <div class="category">
+    <div class="category-title">📱 ウェブアプリ管理画面</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">管理画面（ダッシュボード）でできることは？</button>
+      <div class="faq-a">管理画面はスマホのブラウザで使えるウェブアプリです（アプリインストール不要）。リッチメニューの「ダッシュボード」からLINEログインで開けます：
+        <ul>
+          <li><strong>ホーム：</strong>今月の確定収益・見込み収益・進行中案件のカード一覧</li>
+          <li><strong>案件一覧：</strong>進行中・入金待ち・完了・アーカイブのフィルター管理</li>
+          <li><strong>スケジュール：</strong>今後60日間の期限を日付順フラットリストで確認</li>
+          <li><strong>カレンダー：</strong>月カレンダーで全案件の日程を色分け表示</li>
+          <li><strong>請求書：</strong>請求書作成・管理・PDF出力（Pro）</li>
+          <li><strong>設定：</strong>口座・SNS情報の管理</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">カレンダーの色分けはどういう意味ですか？</button>
+      <div class="faq-a">案件の日程を5色で色分けして表示します：
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px">
+          <span class="tag" style="background:#ff950020;color:#ff9500;border:1px solid #ff950040">🟠 構成案提出日</span>
+          <span class="tag" style="background:#34c75920;color:#34c759;border:1px solid #34c75940">🟢 初稿提出日</span>
+          <span class="tag" style="background:#af52de20;color:#af52de;border:1px solid #af52de40">🟣 修正稿提出日</span>
+          <span class="tag" style="background:#007aff20;color:#007aff;border:1px solid #007aff40">🔵 投稿・納品日</span>
+          <span class="tag" style="background:#ffcc0020;color:#b8860b;border:1px solid #ffcc0040">🟡 入金予定日</span>
+        </div>
+        <p style="margin-top:8px">カレンダーの日付セルには「案件名｜フェーズ名」がラベル表示されます。</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">案件の日程（構成案・初稿・修正稿）はどうやって設定しますか？</button>
+      <div class="faq-a">案件の新規作成・編集フォームの「日程」セクションから設定できます：
+        <ol style="padding-left:18px;margin-top:6px">
+          <li>「案件一覧」→「＋ 追加」または既存案件の「編集」</li>
+          <li>「金額・日程」セクションで構成案提出日・初稿提出日・修正稿提出日・投稿日・入金予定日を入力</li>
+          <li>保存するとカレンダー・スケジュール・リマインドに自動反映</li>
+        </ol>
+        AIオート入力（Pro）を使えば、クライアントからのLINEメッセージをBotに転送するだけで自動登録されます。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">スケジュール画面は何が表示されますか？</button>
+      <div class="faq-a">今後60日間の全案件の期限を日付順に1行ずつ表示します。各行には：
+        <ul>
+          <li>日付（例：06/11 木）</li>
+          <li>フェーズタグ（🟠 構成案 など）</li>
+          <li>案件名</li>
+          <li>残り日数（今日・明日・あとN日、緊急度で色変化）</li>
+        </ul>
+        タップで案件詳細に移動できます。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">案件一覧のNEXT表示とは何ですか？</button>
+      <div class="faq-a">各案件カードに「次に来る一番近い期限」をNEXTバッジで表示します。例えば構成案提出日が6月5日なら「NEXT 構成案 6/5 7日後」と表示。投稿日まで残り3日以内はオレンジ、当日・超過は赤になります。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">クライアントに進捗を見せるにはどうすればいいですか？</button>
+      <div class="faq-a">Proプランでは案件詳細の「共有」タブから「クライアント共有URLを発行する」ボタンをタップするとURLが発行されます。そのURLをLINEやメールで送るだけで、クライアントが：
+        <ul>
+          <li>案件の現在のステータスを確認</li>
+          <li>提出された構成案・初稿などを確認</li>
+          <li>承認または修正依頼のフィードバックを送信</li>
+        </ul>
+        できるようになります。クライアント側にアプリのインストールは不要です。
+      </div>
+    </div>
+  </div>
+
   <!-- 機能 -->
   <div class="category">
     <div class="category-title">⚙️ 機能について</div>
