@@ -169,6 +169,26 @@
         できるようになります。クライアント側にアプリのインストールは不要です。
       </div>
     </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">カレンダーで+1などが表示される場合は？</button>
+      <div class="faq-a">その日に3件以上の予定がある場合+Nで表示されます。タップすると隠れているイベントが展開表示されます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">案件の並び替えはできますか？</button>
+      <div class="faq-a">案件一覧ページの各カード右端の↑↓ボタンで順番を入れ替えられます。並び順はデバイスに記録されます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">案件入力途中でブラウザを閉じてしまったら？</button>
+      <div class="faq-a">3秒ごとに自動保存（下書き）されています。次回同じデバイスで案件追加ページを開くと「入力途中のデータがあります」バナーが表示され「復元する」ボタンで復元できます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">報酬金額は税抜・税込どちらで入力しますか？</button>
+      <div class="faq-a">案件登録フォームの報酬金額入力欄横に「税抜/税込」選択肢があります。案件詳細でも「¥80,000（税抜）」のように表示されます。</div>
+    </div>
   </div>
 
   <!-- 機能 -->
@@ -211,6 +231,21 @@
         </ul>
         グループ数の制限はありません。クライアント側は何も変わらず普通にLINEを使えます。
       </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">LINEから案件を自動登録できますか？</button>
+      <div class="faq-a">2つの方法があります。①リッチメニューの「新規案件登録」をタップするとBotが案件情報を求めます。クライアントからのLINEをそのまま転送するだけでAIが解析して登録できます（Pro機能）。②クライアントのグループLINEにBotを追加（グループ設定）すると、やり取りをAIが監視して自動でオファーを検知します。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">案件のステータスはどんな種類がありますか？</button>
+      <div class="faq-a">以下の順序で進みます：打診受信→条件交渉中→案件確定済み→構成案作成中→構成案提出済み→初稿作成中→初稿提出済み→修正対応中→投稿準備完了→投稿済み→URL報告済み→請求済み→入金待ち→入金完了。途中でステータスを戻すことも可能です（案件詳細ページ下部から変更）。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">構成案や初稿などの提出物管理はできますか？</button>
+      <div class="faq-a">案件詳細の「提出物」タブから構成案・初稿・修正稿などのファイルURLやキャプションを登録できます。クライアント共有URLを使えば、クライアントが直接ファイルを確認して「承認」または「修正依頼」できます。</div>
     </div>
   </div>
 
@@ -256,8 +291,80 @@
     </div>
 
     <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">源泉徴収の計算は自動でできますか？</button>
+      <div class="faq-a">請求書作成時に「源泉徴収」欄で「あり（自動計算）」を選択すると自動計算されます。100万円以下は10.21%、100万円超は20.42%で計算し、差引支払額もリアルタイム表示。PDFにも反映されます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">週次サマリーとは何ですか？</button>
+      <div class="faq-a">Proプランユーザーには毎週月曜日の朝9時に、その週の締め切り一覧がLINEに届きます。設定ページの「通知設定」でオン/オフ切り替え可能です。</div>
+    </div>
+
+    <div class="faq-item">
       <button class="faq-q" onclick="toggle(this)">解約はいつでもできますか？</button>
       <div class="faq-a">はい。Botに「プラン管理」と送ると管理ページが開きます。そこからいつでも解約できます。縛りは一切ありません。</div>
+    </div>
+  </div>
+
+
+  <!-- 収益・請求管理 -->
+  <div class="category">
+    <div class="category-title">💰 収益・請求管理</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">ホーム画面に収益が表示されますか？</button>
+      <div class="faq-a">管理画面のホームに「今月の確定収益」「進行中の見込み」「未入金合計」が常時表示されます。今月入金確認済みの案件合計・進行中案件の報酬見込み・入金待ち合計の3つをリアルタイムで把握できます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">未入金のアラートはありますか？</button>
+      <div class="faq-a">入金期日を過ぎた請求書があると、自動的にステータスが「期限超過」に変わりLINEに通知が届きます。またProプランでは案件詳細から「入金確認」ボタンを押すまで未入金として管理されます。ホーム画面の「未入金 ¥〇〇円 → 確認する」バナーからすぐアクセスできます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">請求書の源泉徴収はどう計算されますか？</button>
+      <div class="faq-a">請求書作成時の「源泉徴収」欄で「あり（自動計算）」を選択すると以下の計算式で自動計算されます：<br><br>・報酬100万円以下：報酬 × 10.21%<br>・報酬100万円超：(報酬-100万) × 20.42% + 102,100円<br><br>小計・消費税・源泉徴収税額・<strong>差引支払額</strong>がリアルタイム表示され、PDF請求書にも反映されます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">同じクライアントの案件を複製できますか？</button>
+      <div class="faq-a">案件詳細ページ下部の「⎘ 複製」ボタンから案件を複製できます。ブランド名・金額・フォーマット・設定情報が引き継がれ、日程のみ新しく設定するだけで素早く登録できます。繰り返しキャンペーンに便利です。</div>
+    </div>
+  </div>
+
+  <!-- グループLINE監視 -->
+  <div class="category">
+    <div class="category-title">💬 グループLINE・自動化</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">グループLINE監視とは何ですか？</button>
+      <div class="faq-a">クライアントとのLINEグループにBotを招待して「グループ設定」を行うと、グループ内のやり取りをAIが自動監視します。以下を自動検出して1対1チャットに通知します：<br><ul><li>📨 新しいオファー・依頼の検知</li><li>🔄 修正依頼・フィードバックの検知</li><li>🔗 投稿URLの報告を自動検出</li><li>📅 日程変更・締め切りの変更</li></ul>クライアント側は何も変わらず普通にLINEを使えます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">オリエンシートの自動読み取りはできますか？</button>
+      <div class="faq-a">BotにオリエンシートをPDFや画像で送ると、AIが内容を解析して案件情報を自動で抽出します。認識精度を上げるにはスクリーンショットや、テキスト部分をコピーしてBotに転送する方法も有効です（Pro機能）。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">自動リマインドはFreeとProで何が違いますか？</button>
+      <div class="faq-a">
+        <table class="plan-table">
+          <tr><th>リマインド内容</th><th>FREE</th><th>PRO</th></tr>
+          <tr><td>投稿日の前日</td><td>✅</td><td>✅</td></tr>
+          <tr><td>構成案提出日</td><td>—</td><td>3日前・前日・当日</td></tr>
+          <tr><td>初稿提出日</td><td>—</td><td>3日前・前日・当日</td></tr>
+          <tr><td>修正稿提出日</td><td>—</td><td>3日前・前日・当日</td></tr>
+          <tr><td>投稿日</td><td>前日のみ</td><td>3日前・前日・当日</td></tr>
+          <tr><td>入金予定日</td><td>—</td><td>3日前・前日・当日</td></tr>
+        </table>
+        Proプランでは全日程・全フェーズで最大4回のリマインドが届きます。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">週次サマリーは何が届きますか？</button>
+      <div class="faq-a">毎週月曜日の朝9時（JST）に、今後7日間の締め切り一覧がLINEに届きます。案件名・フェーズ（構成案・初稿など）・日付・残り日数が色付きで一覧表示されます。設定ページの「通知設定」でオン/オフ切り替えできます（Pro対象）。</div>
     </div>
   </div>
 
@@ -278,6 +385,21 @@
     <div class="faq-item">
       <button class="faq-q" onclick="toggle(this)">クライアントにも操作が必要ですか？</button>
       <div class="faq-a">不要です。Botをグループに招待するだけで、クライアント側は普通にLINEを使うだけです。特別なアプリのダウンロードや設定は一切必要ありません。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">リッチメニューに「新規案件登録」ボタンはどこですか？</button>
+      <div class="faq-a">リッチメニューの上段右（3列目）に「新規案件登録」ボタンがあります。タップするとBotが案件情報の入力を促します。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">アップグレードボタンを押すとどうなりますか？</button>
+      <div class="faq-a">現在のプランに応じた案内が届きます。FreeプランはProへの案内、ProプランはPremiumへの案内、PremiumプランはInstagram DMへのご案内が届きます。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">管理画面のURLが変わりました。どこからアクセスできますか？</button>
+      <div class="faq-a">リッチメニューの「ダッシュボード」ボタンをタップして届いたURLからアクセスしてください。このリンクは30分間有効で、安全なトークン認証付きです。</div>
     </div>
   </div>
 
